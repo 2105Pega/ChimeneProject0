@@ -19,12 +19,6 @@ public class Driver {
 		//menu.testLedgerSetup();
 		//menu.exit();
 		
-		try {
-			
-		}
-		finally {
-			
-		}
 		while(!done) {
 			choice = menu.entryPoint();
 			System.out.println("You may return to the previous menu by entering \"back\"");

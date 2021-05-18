@@ -204,6 +204,7 @@ public class LedgerEngine {
 		
 		Account acc = new Account(names, 0, true, id);
 		accountList.put(acc.getAID(), acc);
+		pendingAcc.add(acc);
 		for (String str : names) {
 			userList.get(str).addAccount(acc.getAID());
 		}
