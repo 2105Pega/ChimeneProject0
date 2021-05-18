@@ -1,13 +1,6 @@
 package com.revature.driver;
 
 import com.revature.menu.Menu;
-import com.revature.user.Account;
-import com.revature.user.User;
-
-import java.io.*;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class Driver {
 	

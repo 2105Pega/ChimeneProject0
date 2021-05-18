@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.config.LoggerConfig;
 
 import com.revature.engine.LedgerEngine;
 import com.revature.user.Account;
@@ -230,6 +229,7 @@ public class Menu {
 		String answer = null;
 		int index;
 		String name = null;
+		scan.nextLine();
 
 		LOGGER.info("New account menu successfully opened");
 
@@ -510,6 +510,7 @@ public class Menu {
 				return;
 			} else if ((user = ledger.getUser(answer)) != null) {
 				System.out.println(user);
+				LOGGER.info("User succesfully looked up " + user.getUsername());
 				for (int i : user.getAccounts()) {
 					System.out.println(ledger.getAccount(i));
 				}
@@ -524,6 +525,7 @@ public class Menu {
 				}
 			} else {
 				System.out.println("User not found");
+				LOGGER.debug("User failed to specify user during lookup (not in ledger)");
 			}
 		}
 	}
@@ -532,7 +534,7 @@ public class Menu {
 		boolean done = false;
 		int num = 0;
 		String temp = null;
-		scan.nextLine();
+		LOGGER.info("User viewed pending accounts");
 
 		for (Account acc : ledger.getPendingAcc()) {
 			System.out.println(acc);
@@ -546,10 +548,12 @@ public class Menu {
 						done = true;
 					} else {
 						System.out.println("Account not found or is not pending");
+						LOGGER.debug("User entered an invalid account in the pending account menu");
 						scan.nextLine();
 					}
 				} catch (InputMismatchException e) {
 					temp = scan.nextLine();
+					LOGGER.warn("User failed to specify account in pending account menu (Unexpected input)");
 					if (temp.toLowerCase().equals("back")) {
 						return;
 					}
@@ -565,9 +569,11 @@ public class Menu {
 					return;
 				} else if (temp.toLowerCase().equals("approve") || temp.toLowerCase().equals("y")) {
 					ledger.approveAcc(num);
+					LOGGER.debug("User approved account " + num);
 					break;
 				} else if (temp.toLowerCase().equals("reject") || temp.toLowerCase().equals("n")) {
 					ledger.cancelAcc(num);
+					LOGGER.debug("User rejected account " + num);
 					break;
 				}
 			}
@@ -588,8 +594,8 @@ public class Menu {
 		boolean done = false;
 		int num = 0;
 		String temp = null;
-		scan.nextLine();
-
+		LOGGER.info("User opened the cancel account menu");
+		
 		while (!done) {
 			while (!done) {
 				System.out.println("Please enter the id of the account you wish to cancel");
@@ -599,12 +605,16 @@ public class Menu {
 						done = true;
 					} else {
 						System.out.println("Account not found");
+						LOGGER.debug("User entered an invalid account in the cancel account menu");
 						scan.nextLine();
 					}
 				} catch (InputMismatchException e) {
 					temp = scan.nextLine();
 					if (temp.toLowerCase().equals("back")) {
 						return;
+					}
+					else {
+						LOGGER.warn("User failed to specify account in cancel account menu (Unexpected input)");
 					}
 				}
 			}
@@ -614,6 +624,7 @@ public class Menu {
 				temp = scan.nextLine();
 				if (temp.toLowerCase().equals("y")) {
 					ledger.cancelAcc(num);
+					LOGGER.debug("User canceled account " + num);
 					break;
 				} else if (temp.toLowerCase().equals("n")) {
 					break;
@@ -637,6 +648,7 @@ public class Menu {
 
 	public void exit() {
 		ledger.closeLedger();
+		LOGGER.debug("Successfully ended the session");
 	}
 
 	public void testLedgerSetup() {
