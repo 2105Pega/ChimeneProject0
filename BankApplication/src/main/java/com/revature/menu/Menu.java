@@ -442,7 +442,7 @@ public class Menu {
 				System.out.println("Please enter the id of the account you wish to transfer to");
 				try {
 					accT = scan.nextInt();
-					if (ledger.getAccount(accT) != null && !ledger.getAccount(accT).isPending()) {
+					if (accT != accF && ledger.getAccount(accT) != null && !ledger.getAccount(accT).isPending()) {
 						LOGGER.debug("Successfully looked up account " + acc.getAID() + " that user wished to transfer to");
 						done = true;
 					} else {
@@ -542,10 +542,10 @@ public class Menu {
 				System.out.println("Please enter the id of the account you wish to approve or reject");
 				try {
 					num = scan.nextInt();
-					if (ledger.getAccount(num) != null) {
+					if (ledger.getAccount(num) != null  && ledger.getAccount(num).isPending()) {
 						done = true;
 					} else {
-						System.out.println("Account not found");
+						System.out.println("Account not found or is not pending");
 						scan.nextLine();
 					}
 				} catch (InputMismatchException e) {
