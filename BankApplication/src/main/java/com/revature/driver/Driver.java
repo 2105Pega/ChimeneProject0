@@ -9,8 +9,8 @@ public class Driver {
 		boolean done = false;
 		Menu menu = new Menu();
 		
-		//menu.testLedgerSetup();
-		//menu.exit();
+		menu.testLedgerSetup();
+		menu.exit();
 		
 		while(!done) {
 			choice = menu.entryPoint();

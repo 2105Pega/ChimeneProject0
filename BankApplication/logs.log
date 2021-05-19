@@ -2,3 +2,42 @@
 [WARN ] 2021-05-18 15:47:19.572 [main] Menu - User entered a username not in the ledger
 [DEBUG] 2021-05-18 15:47:45.217 [main] Menu - Ledger Initialized
 [WARN ] 2021-05-18 15:48:00.123 [main] Menu - User entered a username not in the ledger
+[DEBUG] 2021-05-19 12:01:11.021 [main] Menu - Ledger Initialized
+[WARN ] 2021-05-19 12:01:16.010 [main] Menu - User entered a username not in the ledger
+[DEBUG] 2021-05-19 12:01:19.273 [main] Menu - Ledger Initialized
+[DEBUG] 2021-05-19 12:01:50.319 [main] Menu - Successfully ended the session
+[DEBUG] 2021-05-19 12:01:50.336 [main] Menu - Ledger Initialized
+[INFO ] 2021-05-19 12:02:19.464 [main] Menu - admin has logged in
+[INFO ] 2021-05-19 12:02:27.972 [main] Menu - User opened the view accounts menu
+[DEBUG] 2021-05-19 12:02:27.972 [main] Menu - User accounts successfully displayed
+[DEBUG] 2021-05-19 12:02:34.691 [main] Menu - Exiting to main menu
+[INFO ] 2021-05-19 12:02:37.687 [main] Menu - User opened the menu to withdraw from an account
+[DEBUG] 2021-05-19 12:02:40.135 [main] Menu - Account lookup failed (ID not in the ledger)
+[WARN ] 2021-05-19 12:02:41.516 [main] Menu - User failed to specify account during transaction (Unexpected input)
+[DEBUG] 2021-05-19 12:02:44.020 [main] Menu - Successfully looked up account 11111 that user wished to access
+[WARN ] 2021-05-19 12:02:52.076 [main] Menu - User failed to specify amount during transaction (Unexpected input)
+[DEBUG] 2021-05-19 12:02:53.885 [main] Menu - Transaction amount specified an invalid integer (Either too large or negative)
+[DEBUG] 2021-05-19 12:02:55.428 [main] Menu - Withdrawal completed: $10 withdrawn from account11111
+[INFO ] 2021-05-19 12:02:58.000 [main] Menu - User opened the view accounts menu
+[DEBUG] 2021-05-19 12:02:58.000 [main] Menu - User accounts successfully displayed
+[DEBUG] 2021-05-19 12:03:21.215 [main] Menu - Exiting to main menu
+[DEBUG] 2021-05-19 12:03:36.885 [main] Menu - User failed to specify user during lookup (not in ledger)
+[DEBUG] 2021-05-19 12:03:38.492 [main] Menu - User failed to specify user during lookup (not in ledger)
+[INFO ] 2021-05-19 12:03:42.370 [main] Menu - User succesfully looked up customer
+[INFO ] 2021-05-19 12:03:53.307 [main] Menu - User succesfully looked up admin
+[INFO ] 2021-05-19 12:04:10.337 [main] Menu - User succesfully looked up user
+[INFO ] 2021-05-19 12:04:20.080 [main] Menu - New account menu successfully opened
+[DEBUG] 2021-05-19 12:04:21.534 [main] Menu - User created an individual account
+[INFO ] 2021-05-19 12:04:26.727 [main] Menu - User successfully opened the transfer menu
+[DEBUG] 2021-05-19 12:04:32.835 [main] Menu - User attempted to access account 11112 which is pending or not their own
+[DEBUG] 2021-05-19 12:04:35.742 [main] Menu - Successfully looked up account 11111 that user wished to transfer from
+[DEBUG] 2021-05-19 12:04:40.467 [main] Menu - Successfully looked up account 11111 that user wished to transfer to
+[DEBUG] 2021-05-19 12:04:41.594 [main] Menu - Transaction completed: $10 from account 11111 to account 11113
+[INFO ] 2021-05-19 12:04:50.278 [main] Menu - User opened the view accounts menu
+[DEBUG] 2021-05-19 12:04:50.278 [main] Menu - User accounts successfully displayed
+[DEBUG] 2021-05-19 12:04:57.587 [main] Menu - Exiting to main menu
+[INFO ] 2021-05-19 12:05:46.272 [main] Menu - User opened the cancel account menu
+[WARN ] 2021-05-19 12:05:52.589 [main] Menu - User failed to specify account in cancel account menu (Unexpected input)
+[DEBUG] 2021-05-19 12:05:56.772 [main] Menu - User entered an invalid account in the cancel account menu
+[DEBUG] 2021-05-19 12:06:50.546 [main] Menu - User canceled account 11114
+[INFO ] 2021-05-19 12:07:13.140 [main] Menu - User viewed pending accounts

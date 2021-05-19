@@ -619,6 +619,7 @@ public class Menu {
 				}
 			}
 			done = false;
+			scan.nextLine();
 			while (!done) {
 				System.out.println("Are you sure you wish to cancel \"" + ledger.getAccount(num) + "\"? Y or N");
 				temp = scan.nextLine();

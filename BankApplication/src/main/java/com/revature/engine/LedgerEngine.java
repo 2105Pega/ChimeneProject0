@@ -187,6 +187,7 @@ public class LedgerEngine {
 
 	public void approveAcc(int id) {
 		accountList.get(id).setPending(false);
+		pendingAcc.remove(pendingAcc.indexOf(accountList.get(id)));
 	}
 
 	public boolean hasPending(String name) {
