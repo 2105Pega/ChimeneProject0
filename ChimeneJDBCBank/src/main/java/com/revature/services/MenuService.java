@@ -421,6 +421,7 @@ public class MenuService {
 				}
 			}
 			done = false;
+			scan.nextLine();
 
 			while (!done) {
 				System.out.println("Do you wish to " + transaction + " another account? Y or N");
@@ -529,6 +530,7 @@ public class MenuService {
 				}
 			}
 			done = false;
+			scan.nextLine();
 
 			while (!done) {
 				System.out.println("Do you wish to make any other transfers? Y or N");
