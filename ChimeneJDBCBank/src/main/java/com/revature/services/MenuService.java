@@ -314,7 +314,7 @@ public class MenuService {
 			for (int i : currentUser.getAccounts()) {
 				acc = ledger.getAccount(i);
 				StringBuilder str = new StringBuilder();
-				str.append("(" + acc.getAID()  +")");
+				str.append("(Account #" + acc.getAID()  +")");
 				if(acc.isPending()) {
 					str.append("Pending ");
 				}
@@ -584,7 +584,24 @@ public class MenuService {
 		LOGGER.info("User viewed pending accounts");
 
 		for (Account acc : ledger.getPendingAcc()) {
-			System.out.println(acc);
+			StringBuilder str = new StringBuilder();
+			str.append("(Account #" + acc.getAID()  +")");
+			if(acc.isPending()) {
+				str.append("Pending ");
+			}
+			int size = acc.getUsers().size();
+			if(size == 1) {
+				str.append("Individual Account ");
+			}
+			else if(size > 1) {
+				str.append("Joint Account held by ");
+				for(int j=0; j<size-1; j++) {
+					str.append(ledger.getName(acc.getUsers().get(j)) + ", ");
+				}
+				str.append("and " + acc.getUsers().get(size-1) + " ");
+			}
+			str.append("that contains $" + acc.getAmount());
+			System.out.println(str);
 		}
 		while (!done) {
 			while (!done) {
@@ -786,7 +803,24 @@ public class MenuService {
 		for(Integer i : u.getAccounts()) {
 			acc = ledger.getAccount(i);
 			if(acc.getAmount() == 0) {
-				System.out.println(acc);
+				StringBuilder str = new StringBuilder();
+				str.append("(Account #" + acc.getAID()  +")");
+				if(acc.isPending()) {
+					str.append("Pending ");
+				}
+				int size = acc.getUsers().size();
+				if(size == 1) {
+					str.append("Individual Account ");
+				}
+				else if(size > 1) {
+					str.append("Joint Account held by ");
+					for(int j=0; j<size-1; j++) {
+						str.append(ledger.getName(acc.getUsers().get(j)) + ", ");
+					}
+					str.append("and " + acc.getUsers().get(size-1) + " ");
+				}
+				str.append("that contains $" + acc.getAmount());
+				System.out.println(str);
 				emptyAccs.add(i);
 			}
 		}
