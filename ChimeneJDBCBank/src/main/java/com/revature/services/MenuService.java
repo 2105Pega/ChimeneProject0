@@ -269,7 +269,6 @@ public class MenuService {
 					index = 0;
 					while (answer.indexOf(",") > 0) {
 						name = answer.substring(index, answer.indexOf(","));
-						System.out.println("Name: " + name);
 						if (ledger.getUser(name) != null) {
 							names.add(name);
 							index = answer.indexOf(",") + 1;
@@ -327,7 +326,7 @@ public class MenuService {
 					for(int j=0; j<size-1; j++) {
 						str.append(ledger.getName(acc.getUsers().get(j)) + ", ");
 					}
-					str.append("and " + acc.getUsers().get(size-1) + " ");
+					str.append("and " + ledger.getName(acc.getUsers().get(size-1)) + " ");
 				}
 				str.append("that contains $" + acc.getAmount());
 				System.out.println(str);
@@ -549,6 +548,7 @@ public class MenuService {
 		String answer = null;
 		User user = null;
 		scan.nextLine();
+		Account acc;
 
 		while (!done) {
 			System.out.println("Please enter the username of the customer you want to lookup");
@@ -559,7 +559,25 @@ public class MenuService {
 				System.out.println(user);
 				LOGGER.info("User succesfully looked up " + user.getUsername());
 				for (int i : user.getAccounts()) {
-					System.out.println(ledger.getAccount(i));
+					acc = ledger.getAccount(i);
+					StringBuilder str = new StringBuilder();
+					str.append("(Account #" + acc.getAID()  +")");
+					if(acc.isPending()) {
+						str.append("Pending ");
+					}
+					int size = acc.getUsers().size();
+					if(size == 1) {
+						str.append("Individual Account ");
+					}
+					else if(size > 1) {
+						str.append("Joint Account held by ");
+						for(int j=0; j<size-1; j++) {
+							str.append(ledger.getName(acc.getUsers().get(j)) + ", ");
+						}
+						str.append("and " + ledger.getName(acc.getUsers().get(size-1)) + " ");
+					}
+					str.append("that contains $" + acc.getAmount());
+					System.out.println(str);
 				}
 				while (!done) {
 					System.out.println("Would you like to lookup another customer? Y or N");
@@ -598,7 +616,7 @@ public class MenuService {
 				for(int j=0; j<size-1; j++) {
 					str.append(ledger.getName(acc.getUsers().get(j)) + ", ");
 				}
-				str.append("and " + acc.getUsers().get(size-1) + " ");
+				str.append("and " + ledger.getName(acc.getUsers().get(size-1)) + " ");
 			}
 			str.append("that contains $" + acc.getAmount());
 			System.out.println(str);

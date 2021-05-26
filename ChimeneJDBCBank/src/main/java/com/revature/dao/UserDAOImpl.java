@@ -90,6 +90,7 @@ public class UserDAOImpl implements UserDAO{
 				}
 				u.setAccounts(accs);
 				users.add(u);
+				accs = new ArrayList<Integer>();
 			}
 			
 			return users;

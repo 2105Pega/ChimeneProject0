@@ -79,5 +79,7 @@ public class Driver {
 				logOut = false;
 			}
 		}
+		
+		System.out.println("Goodbye!");
 	}
 }

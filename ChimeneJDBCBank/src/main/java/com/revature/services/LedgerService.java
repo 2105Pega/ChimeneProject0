@@ -95,6 +95,7 @@ public class LedgerService {
 
 	public void cancelAcc(int id) {
 		ArrayList<Integer> users = accountList.get(id).getUsers();
+		System.out.println("Account: " + id);
 		for (Integer i : users) {
 			userList.get(uDao.getNameByID(i)).removeAccount(id);
 		}
@@ -125,6 +126,7 @@ public class LedgerService {
 		}
 		
 		Account acc = new Account(ids, 0, true, 1);
+		System.out.println(acc);
 		acc.setAID(aDao.addAccount(acc));
 		accountList.put(acc.getAID(), acc);
 		pendingAcc.add(acc);
